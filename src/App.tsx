@@ -1,12 +1,12 @@
 import {Route, Routes } from "react-router-dom";
 import "./App.css";
-import BaseLayout from "./components/general/layout/base-layout";
 import Error404 from "./pages/404";
+import Home from "./pages/home";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<BaseLayout />}></Route>
+      <Route path="/" element={<Home />}></Route>
       <Route
         path="*"
         element={
