@@ -1,0 +1,15 @@
+.cardContent {
+  box-shadow: 0 0.125rem 0.25rem rgba(28, 43, 54, 0.075);
+}
+
+.cardProfile {
+  border: 4px solid #0239B6;
+}
+
+.containerCard {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0.125rem 0.25rem rgba(28, 43, 54, 0.075);
+  width: 100%;
+}
