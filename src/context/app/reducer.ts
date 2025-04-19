@@ -1,10 +1,11 @@
 import ScreenSize from "../../utils/ui/screen-size"
-import { IInternalState, AppLoading, Themes } from "./context"
+import { AppLoading, IInternalState, sideBar, Themes } from "./context"
 
 type Action =
   | { type: "SET_SCREEN_SIZE"; payload: { screenSize: ScreenSize } }
   | { type: "SET_LOCALE"; payload: { locale: any } }
   | { type: "SET_THEME"; payload: { theme: Themes } }
+  | { type: "SET_SIDE_BAR"; payload: { collapsed: sideBar } }
   | { type: "LOADING"; payload: { loading: AppLoading[] | AppLoading } }
 
 
@@ -17,6 +18,8 @@ const reducer = (state: IInternalState, action: Action): IInternalState => {
       return {
         ...state,
       }
+      case "SET_SIDE_BAR":
+        return { ...state, collapsed: action.payload.collapsed }
 
     default:
       return state

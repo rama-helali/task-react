@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useReducer, useRef } from "react"
-import AppContext, { AppData, internalState, Themes } from "./context";
+import AppContext, { AppData, internalState, sideBar, Themes } from "./context";
 import reducer from "./reducer";
 import ScreenSize from "../../utils/ui/screen-size";
 import { IconContext } from "react-icons";
-import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 interface IProps {
@@ -39,12 +38,16 @@ const AppContextProvider: React.FC<IProps> = (props) => {
     dispatch({ type: "SET_THEME", payload: { theme } });
   };
 
+  const changeCollapsed = (collapsed: sideBar) => {
+    dispatch({ type: "SET_SIDE_BAR", payload: { collapsed } });
+  };
+
   return (
     <IconContext.Provider value={{ className: "react-icons-class" }}>
       <AppContext.Provider
         value={{
           ...state,
-          actions: {},
+          actions: {changeCollapsed},
         }}
       >
         {props.children}
