@@ -24,6 +24,7 @@ root.render(
             },
             token: {
               colorPrimary: "#F8B01C",
+              colorSuccess :" #273369",
               colorTextSecondary: "#17427A",
               fontFamily: "Cairo",
             },
