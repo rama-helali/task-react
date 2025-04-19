@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from "./style.module.scss";
 import { Row, Col } from 'antd';
+import AppContext from '../../../context/app/context';
 
 const BaseBagEdit: React.FC = () => {
     const [Rows, setRows] = React.useState<number[]>([]);
     const [Cols, setCols] = React.useState<number[]>([]);
+    const { collapsed } = useContext(AppContext);
 
     useEffect(() => {
         const totalRows = Math.floor(window.innerHeight / 36);
         const totalCols = Math.floor(window.innerWidth / 36);
         setRows(Array.from({ length: totalRows }, (_, index) => index));
         setCols(Array.from({ length: totalCols }, (_, index) => index));
-    }, []);
+    }, [collapsed]);
 
     return (
         <div className={styles.container}>
@@ -24,10 +26,10 @@ const BaseBagEdit: React.FC = () => {
                                 <div
                                     className={styles.bgCircle}
                                     style={{
-                                        width: "30px",
-                                        height: "30px",
+                                        width: collapsed == "close" ? "30px" : "25px",
+                                        height: collapsed == "close" ? "30px" : "25px",
                                         border: "1px solid #CBCBCB",
-                                        margin:"0px 2px",
+                                        margin:"2px 2px",
                                     }}
                                 ></div>
                             </Col>
